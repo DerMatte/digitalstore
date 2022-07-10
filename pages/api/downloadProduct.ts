@@ -41,9 +41,14 @@ export default async function handler(
       userProducts.products &&
       userProducts?.products?.some((product) => product.slug === slug)
     ) {
+      const oneProduct = userProducts?.products?.find(
+        (product) => product.slug === slug
+      );
+      console.log(oneProduct);
+
       const { data, error } = await storageClient
         .from("products")
-        .createSignedUrl(`${slug}.zip`, 60);
+        .createSignedUrl(oneProduct.path, 60);
 
       return res.status(200).send({
         content: "Success! Your download link is ready",

@@ -67,7 +67,7 @@ model Product {
   available   Boolean       @default(true)
   price       Float         @default(5)
   slug        String        @id @db.Text
-  data        String        @db.Text
+  path        String        @db.Text
   User        User[]
   Transaction Transaction[]
 }

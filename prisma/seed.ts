@@ -16,7 +16,7 @@ const productsData: Product[] = [
     price: 20,
     available: true,
     slug: "casper",
-    data: "https://github.com/TryGhost/Casper/archive/refs/tags/v4.7.2.zip",
+    path: "casper.zip",
   },
   {
     id: "ckxz6v90c0007mcp0ee10boq3",
@@ -28,7 +28,7 @@ const productsData: Product[] = [
     price: 17,
     available: true,
     slug: "liebling",
-    data: "https://github.com/eddiesigner/liebling/releases/download/v1.5.0/liebling.zip",
+    path: "liebling.zip",
   },
   {
     id: "ckxz6v90c0007mcp0ee10boq3",
@@ -40,7 +40,7 @@ const productsData: Product[] = [
     price: 70,
     available: true,
     slug: "pico",
-    data: "https://github.com/TryGhost/Pico/archive/main.zip",
+    path: "pico.zip",
   },
 ];
 
