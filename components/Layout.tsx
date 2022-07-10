@@ -16,11 +16,12 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <Navbar />
-    {children}
-    <footer>
+
+    <div className="container mx-auto">{children}</div>
+    {/* <footer>
       <hr />
       <span>I&apos;m here to stay (Footer)</span>
-    </footer>
+    </footer> */}
   </div>
 );
 

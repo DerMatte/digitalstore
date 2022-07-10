@@ -1,6 +1,6 @@
 // import Link from "next/link";
 import { Product } from "@prisma/client";
-import prisma from "../../lib/prisma";
+import { prisma } from "lib/prisma";
 import ProductList from "../../components/ProductList";
 import { GetStaticProps } from "next";
 import Layout from "../../components/Layout";

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Product } from "@prisma/client";
-import prisma from "../../lib/prisma";
+import { prisma } from "lib/prisma";
 import { GetStaticProps, GetStaticPaths } from "next";
 import ReactMarkdown from "react-markdown";
 import Layout from "../../components/Layout";
@@ -9,7 +9,7 @@ import Layout from "../../components/Layout";
 const ProductPage = ({ product }: Product) => {
   return (
     <Layout>
-      <div className="m-2 flex max-w-6xl flex-col px-8">
+      <div className=" m-2 flex max-w-6xl flex-col px-8">
         <h1 className="pt-8 text-3xl">{product.name}</h1>
         <div className="py-8">
           <Link href="/product">
@@ -30,7 +30,7 @@ const ProductPage = ({ product }: Product) => {
         <p className="text-right">
           Price:{" "}
           <span className="underline decoration-sky-500 decoration-2 hover:decoration-dotted ">
-            {product.price} XRP
+            {product.price} EUR
           </span>
         </p>
       </div>

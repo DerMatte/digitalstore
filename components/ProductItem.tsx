@@ -20,10 +20,10 @@ const ProductItem = ({ p }: Props) => {
           />
         </div>
         <h1 className="my-4 text-2xl">{p.name}</h1>
-        <p className="my-2">
-          <ReactMarkdown>{p.description}</ReactMarkdown>
-        </p>
-        <p className=" my-2">{p.price} XRP</p>
+        <ReactMarkdown className="my-2 line-clamp-3">
+          {p.description}
+        </ReactMarkdown>
+        <span className=" my-2">{p.price} XRP</span>
       </a>
     </Link>
   );

@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "Products", href: "/product", current: false },
+  { name: "Downloads", href: "/download", current: false },
   { name: "Client", href: "/examplepages/client", current: false },
   { name: "Server", href: "/examplepages/server", current: false },
   { name: "Protected", href: "/examplepages/protected", current: false },
@@ -76,7 +77,7 @@ const Navbar = () => {
                           src="/phoenix.png"
                           alt="Phoenix Logo"
                         /> */}
-                        <svglogo classname="block h-8 w-auto lg:hidden" />
+                        <svglogo className="block h-8 w-auto lg:hidden" />
                       </a>
                     </Link>
                     <Link href="/">
@@ -86,7 +87,7 @@ const Navbar = () => {
                           src="/phoenix.png"
                           alt="Phoenix Logo"
                         /> */}
-                        <svglogo classname="hidden h-8 w-auto lg:block" />
+                        <svglogo className="hidden h-8 w-auto lg:block" />
                       </a>
                     </Link>
                   </div>

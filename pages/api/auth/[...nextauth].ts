@@ -61,8 +61,17 @@ export const authOptions: NextAuthOptions = {
   },
   callbacks: {
     async jwt({ token }) {
-      token.userRole = "admin";
+      token.userRole = "user";
+
       return token;
+    },
+    async session({ session, user, token }) {
+      // Add any additional data you want to store in the session here
+      // For example, if you are using the "prisma" adapter, you can store the user's
+      // id in the session as follows:
+      session.userId = user.id;
+
+      return session;
     },
   },
 };
