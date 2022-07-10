@@ -3,7 +3,6 @@ import Layout from "../components/Layout";
 import Head from "next/head";
 // import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 
-
 const IndexPage = () => (
   <Layout title="Home | Next.js + TypeScript + Tailwind">
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
