@@ -5,7 +5,7 @@ import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { signIn, signOut, useSession } from "next-auth/react";
 import classNames from "classnames";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/future/image";
 import { useRouter } from "next/router";
 
 // import Logo from "../../public/phoenix.png";
@@ -21,24 +21,24 @@ const navigation = [
   { name: "me", href: "/examplepages/me", current: false },
 ];
 
-const svglogo = (classname: string) => (
-  <svg
-    width="32"
-    height="32"
-    viewBox="0 0 32 32"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className={classname}
-  >
-    <rect width="100%" height="100%" rx="16" fill="var(--secondary)"></rect>
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
-      fill="var(--primary)"
-    ></path>
-  </svg>
-);
+// const svglogo = (classname: string): JSX.IntrinsicElements => (
+//   <svg
+//     width="32"
+//     height="32"
+//     viewBox="0 0 32 32"
+//     fill="none"
+//     xmlns="http://www.w3.org/2000/svg"
+//     className={classname}
+//   >
+//     <rect width="100%" height="100%" rx="16" fill="var(--secondary)"></rect>
+//     <path
+//       fillRule="evenodd"
+//       clipRule="evenodd"
+//       d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
+//       fill="var(--primary)"
+//     ></path>
+//   </svg>
+// );
 
 const Navbar = () => {
   const { data: session, status } = useSession();
@@ -77,7 +77,27 @@ const Navbar = () => {
                           src="/phoenix.png"
                           alt="Phoenix Logo"
                         /> */}
-                        <svglogo className="block h-8 w-auto lg:hidden" />
+                        <svg
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="block h-8 w-auto lg:hidden"
+                        >
+                          <rect
+                            width="100%"
+                            height="100%"
+                            rx="16"
+                            fill="var(--secondary)"
+                          ></rect>
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
+                            fill="var(--primary)"
+                          ></path>
+                        </svg>
                       </a>
                     </Link>
                     <Link href="/">
@@ -87,7 +107,28 @@ const Navbar = () => {
                           src="/phoenix.png"
                           alt="Phoenix Logo"
                         /> */}
-                        <svglogo className="hidden h-8 w-auto lg:block" />
+                        {/* <svglogo className="hidden h-8 w-auto lg:block" /> */}
+                        <svg
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="hidden h-8 w-auto lg:block"
+                        >
+                          <rect
+                            width="100%"
+                            height="100%"
+                            rx="16"
+                            fill="var(--secondary)"
+                          ></rect>
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
+                            fill="var(--primary)"
+                          ></path>
+                        </svg>
                       </a>
                     </Link>
                   </div>
@@ -148,12 +189,14 @@ const Navbar = () => {
                         <div>
                           <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <span className="sr-only">Open user menu</span>
-                            <img
+                            <Image
                               className="h-8 w-8 rounded-full"
                               src={
                                 session.user.image ||
                                 "https://t3.ftcdn.net/jpg/00/64/67/80/240_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg"
                               }
+                              width={32}
+                              height={32}
                               alt={session?.user?.name || "User"}
                             />
                           </Menu.Button>
@@ -196,6 +239,7 @@ const Navbar = () => {
                             </Menu.Item>
                             <Menu.Item>
                               {({ active }) => (
+                                // eslint-disable-next-line @next/next/no-html-link-for-pages
                                 <a
                                   href="/api/auth/signout"
                                   className={classNames(

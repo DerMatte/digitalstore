@@ -5,16 +5,17 @@ import { prisma } from "../lib/prisma";
 import type { GetServerSidePropsContext } from "next";
 import type { Session } from "next-auth";
 import ProductList from "components/ProductList";
-import { Product } from "@prisma/client";
+import { User, Product } from "@prisma/client";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
+import Image from "next/future/image";
 
 export default function ServerSidePage({
   session,
   userProducts,
 }: {
   session: Session;
-  userProducts: Product[];
+  userProducts: User & { products: Product[] };
 }) {
   const download = async (slug: string) => {
     console.log("downloading", slug);
@@ -60,7 +61,11 @@ export default function ServerSidePage({
         {userProducts.products.map((product) => (
           <div key={product.id} className="max-w-md border-2">
             <h2 className="pb-4 pt-2 text-xl">{product.name}</h2>
-            <img src={product.image} alt={product.name} className="max-w-sm" />
+            <Image
+              src={product.image}
+              alt={product.name}
+              className="max-w-sm"
+            />
             <ReactMarkdown className="mt-4 line-clamp-2">
               {product.description}
             </ReactMarkdown>
@@ -98,7 +103,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     };
   }
   const userProducts = await prisma.user.findUnique({
-    where: { id: session?.userId },
+    where: { id: session?.userId as string },
     select: { products: true },
   });
 

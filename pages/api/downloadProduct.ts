@@ -30,7 +30,7 @@ export default async function handler(
     // session.user.userId
     // get bought products of current user
     const userProducts = await prisma.user.findUniqueOrThrow({
-      where: { id: session?.userId },
+      where: { id: session?.userId as string },
       select: {
         products: true,
       },

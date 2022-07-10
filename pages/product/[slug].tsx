@@ -6,7 +6,11 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import ReactMarkdown from "react-markdown";
 import Layout from "../../components/Layout";
 
-const ProductPage = ({ product }: Product) => {
+interface Props {
+  product: Product;
+}
+
+const ProductPage = ({ product }: Props) => {
   return (
     <Layout>
       <div className=" m-2 flex max-w-6xl flex-col px-8">
