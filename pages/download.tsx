@@ -41,7 +41,7 @@ export default function ServerSidePage({
   // As this page uses Server Side Rendering, the `session` will be already
   // populated on render without needing to go through a loading stage.
   return (
-    <Layout>
+    <Layout title="Downloads | DIgitalStore">
       <h1 className="pt-12 text-2xl">Download Page | Bought Products</h1>
       <p>here you can download the products you already bought</p>
 

@@ -28,9 +28,9 @@ const ProductPage = ({ product }: Props) => {
             height={720}
           />
         </div>
-        <p className="text my-6 py-4">
-          <ReactMarkdown>{product.description}</ReactMarkdown>
-        </p>
+        <ReactMarkdown className="text my-6 py-4">
+          {product.description}
+        </ReactMarkdown>
         <p className="text-right">
           Price:{" "}
           <span className="underline decoration-sky-500 decoration-2 hover:decoration-dotted ">

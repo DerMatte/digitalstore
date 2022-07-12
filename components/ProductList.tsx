@@ -9,13 +9,11 @@ type Props = {
 const ProductList = ({ products }: Props) => {
   return (
     <>
-      <ul className="grid grid-rows-4 gap-4 sm:grid-cols-2 md:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
         {products.map((product) => (
-          <li key={product.id}>
-            <ProductItem p={product} />
-          </li>
+          <ProductItem p={product} key={product.id} />
         ))}
-      </ul>
+      </div>
     </>
   );
 };

@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const ProductIndex = ({ products }) => {
   return (
-    <Layout>
+    <Layout title="Products | DigitalStore">
       <div className="m-16 flex flex-col">
         <h1 className="mb-8 text-3xl">Products</h1>
         <ProductList products={products} />
